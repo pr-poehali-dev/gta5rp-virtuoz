@@ -86,7 +86,7 @@ export default function Index() {
                 GTA5 VIRTS
               </h1>
             </div>
-            <nav className="hidden md:flex gap-8">
+            <nav className="flex gap-8">
               {['catalog', 'servers', 'rules', 'contacts'].map((tab) => (
                 <button
                   key={tab}
@@ -104,10 +104,6 @@ export default function Index() {
                 </button>
               ))}
             </nav>
-            <Button className="gradient-primary text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
-              <Icon name="ShoppingCart" size={18} />
-              <span className="ml-2">Корзина</span>
-            </Button>
           </div>
         </div>
       </header>
@@ -190,8 +186,11 @@ export default function Index() {
                       )}
                     </div>
                     
-                    <Button className="w-full gradient-primary text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all h-12">
-                      <Icon name="ShoppingCart" size={18} />
+                    <Button 
+                      onClick={() => window.open('https://t.me/Feruchioshopps', '_blank')}
+                      className="w-full gradient-primary text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all h-12"
+                    >
+                      <Icon name="ShoppingBag" size={18} />
                       <span className="ml-2">Купить</span>
                     </Button>
                   </CardContent>
