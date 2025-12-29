@@ -9,7 +9,6 @@ const products = [
     id: 1,
     name: '100K Игровых денег',
     price: 99,
-    type: 'money',
     discount: null,
     popular: false,
     servers: ['Arizona RP', 'Radmir RP', 'Advance RP']
@@ -18,7 +17,6 @@ const products = [
     id: 2,
     name: '500K Игровых денег',
     price: 449,
-    type: 'money',
     discount: 10,
     popular: true,
     servers: ['Arizona RP', 'Radmir RP', 'Advance RP', 'Amazing RP']
@@ -27,35 +25,31 @@ const products = [
     id: 3,
     name: '1M Игровых денег',
     price: 799,
-    type: 'money',
     discount: 15,
     popular: false,
     servers: ['Arizona RP', 'Radmir RP', 'Advance RP', 'Amazing RP']
   },
   {
     id: 4,
-    name: '50 Donate-валюты',
-    price: 149,
-    type: 'premium',
-    discount: null,
+    name: '2M Игровых денег',
+    price: 1499,
+    discount: 20,
     popular: false,
-    servers: ['Arizona RP', 'Radmir RP']
+    servers: ['Arizona RP', 'Radmir RP', 'Advance RP', 'Amazing RP']
   },
   {
     id: 5,
-    name: '200 Donate-валюты',
-    price: 549,
-    type: 'premium',
-    discount: 5,
-    popular: true,
-    servers: ['Arizona RP', 'Radmir RP', 'Advance RP']
+    name: '5M Игровых денег',
+    price: 3499,
+    discount: 25,
+    popular: false,
+    servers: ['Arizona RP', 'Radmir RP', 'Advance RP', 'Amazing RP']
   },
   {
     id: 6,
-    name: '500 Donate-валюты',
-    price: 1299,
-    type: 'premium',
-    discount: 20,
+    name: '10M Игровых денег',
+    price: 6499,
+    discount: 30,
     popular: false,
     servers: ['Arizona RP', 'Radmir RP', 'Advance RP', 'Amazing RP']
   }
@@ -77,11 +71,7 @@ const rules = [
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState('catalog');
-  const [selectedType, setSelectedType] = useState<'all' | 'money' | 'premium'>('all');
-
-  const filteredProducts = selectedType === 'all' 
-    ? products 
-    : products.filter(p => p.type === selectedType);
+  const filteredProducts = products;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
@@ -134,34 +124,7 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Button
-                size="lg"
-                variant={selectedType === 'all' ? 'default' : 'outline'}
-                onClick={() => setSelectedType('all')}
-                className={selectedType === 'all' ? 'gradient-primary text-white shadow-lg' : 'border-2'}
-              >
-                Все товары
-              </Button>
-              <Button
-                size="lg"
-                variant={selectedType === 'money' ? 'default' : 'outline'}
-                onClick={() => setSelectedType('money')}
-                className={selectedType === 'money' ? 'bg-primary text-white shadow-lg' : 'border-2'}
-              >
-                <Icon name="DollarSign" size={20} />
-                <span className="ml-2">Игровые деньги</span>
-              </Button>
-              <Button
-                size="lg"
-                variant={selectedType === 'premium' ? 'default' : 'outline'}
-                onClick={() => setSelectedType('premium')}
-                className={selectedType === 'premium' ? 'bg-secondary text-white shadow-lg' : 'border-2'}
-              >
-                <Icon name="Gem" size={20} />
-                <span className="ml-2">Донат-валюта</span>
-              </Button>
-            </div>
+
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((product, index) => (
@@ -187,9 +150,9 @@ export default function Index() {
                   )}
                   
                   <CardHeader className="pb-4">
-                    <div className={`w-20 h-20 mx-auto mb-6 ${product.type === 'money' ? 'gradient-primary' : 'gradient-accent'} rounded-2xl flex items-center justify-center shadow-xl`}>
+                    <div className="w-20 h-20 mx-auto mb-6 gradient-primary rounded-2xl flex items-center justify-center shadow-xl">
                       <Icon 
-                        name={product.type === 'money' ? 'DollarSign' : 'Gem'} 
+                        name="DollarSign" 
                         size={36} 
                         className="text-white"
                       />
