@@ -74,8 +74,8 @@ export default function Index() {
   const filteredProducts = products;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
-      <header className="border-b border-border backdrop-blur-sm sticky top-0 z-50 bg-white/80">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
+      <header className="border-b border-border backdrop-blur-sm sticky top-0 z-50 bg-background/80">
         <div className="container mx-auto px-4 py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export default function Index() {
               {filteredProducts.map((product, index) => (
                 <Card 
                   key={product.id} 
-                  className="hover:shadow-2xl transition-all duration-300 relative overflow-hidden border-2 bg-white"
+                  className="hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 relative overflow-hidden border-2 border-border bg-card"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {product.popular && (
@@ -216,7 +216,7 @@ export default function Index() {
               {servers.map((server, index) => (
                 <Card 
                   key={server.name} 
-                  className="hover:shadow-2xl transition-all border-2 bg-white"
+                  className="hover:shadow-2xl hover:shadow-primary/20 transition-all border-2 border-border bg-card"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CardHeader className="p-6">
@@ -257,7 +257,7 @@ export default function Index() {
               {rules.map((rule, index) => (
                 <Card 
                   key={rule.title} 
-                  className="hover:shadow-2xl transition-all border-2 bg-white"
+                  className="hover:shadow-2xl hover:shadow-primary/20 transition-all border-2 border-border bg-card"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CardHeader className="p-6">
@@ -308,7 +308,7 @@ export default function Index() {
             </div>
 
             <div className="max-w-2xl mx-auto">
-              <Card className="border-2 shadow-2xl bg-white">
+              <Card className="border-2 border-border shadow-2xl shadow-primary/10 bg-card">
                 <CardContent className="pt-8 space-y-6 p-8">
                   <div className="flex items-center gap-5 p-5 bg-primary/5 rounded-xl hover:bg-primary/10 transition-colors">
                     <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center">
@@ -354,7 +354,7 @@ export default function Index() {
         )}
       </main>
 
-      <footer className="border-t border-border mt-20 py-10 bg-white/80">
+      <footer className="border-t border-border mt-20 py-10 bg-background/80">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
           <p className="text-base">&copy; 2024 GTA5 VIRTS. Все права защищены.</p>
           <p className="text-sm mt-2">Мы не связаны с Rockstar Games или Take-Two Interactive</p>
